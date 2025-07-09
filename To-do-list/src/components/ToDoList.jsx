@@ -82,30 +82,35 @@ export default function ListaDeTarefas() {
 
     return (
         <div className="container">
-            <h2>Lista de Tarefas</h2>
-
+            <h2 className='title'>Lista de Tarefas</h2>
             {/* Formulário para adicionar nova tarefa */}
             <form onSubmit={handleSubmit} className="form">
-                <input
-                    type="text"
-                    placeholder="Nome da tarefa"
-                    value={nome}
-                    onChange={(e) => setNome(e.target.value)}
-                    required
-                />
-
-                <select value={prioridade} onChange={(e) => setPrioridade(e.target.value)}>
-                    <option>Alta</option>
-                    <option>Média</option>
-                    <option>Baixa</option>
-                </select>
-
-                <input
-                    type="date"
-                    value={dataLimite}
-                    onChange={(e) => setDataLimite(e.target.value)}
-                />
-
+                <label className='input-area'>
+                    <p className='input-desc'>Nome da tarefa:</p>
+                    <input
+                        type="text"
+                        placeholder="Nome da tarefa"
+                        value={nome}
+                        onChange={(e) => setNome(e.target.value)}
+                        required
+                    />
+                </label>
+                <label className='input-area'>
+                    <p className='input-desc'>Prioridade:</p>
+                    <select value={prioridade} onChange={(e) => setPrioridade(e.target.value)}>
+                        <option>Alta</option>
+                        <option>Média</option>
+                        <option>Baixa</option>
+                    </select>
+                </label>
+                <label className='input-area'>
+                    <p className='input-desc'>Limite:</p>
+                    <input
+                        type="date"
+                        value={dataLimite}
+                        onChange={(e) => setDataLimite(e.target.value)}
+                    />
+                </label>
                 <label>
                     <input
                         type="checkbox"
@@ -114,10 +119,8 @@ export default function ListaDeTarefas() {
                     />
                     Marcar como concluída
                 </label>
-
-                <button type="submit">Adicionar</button>
+                <button className='add' type="submit">Adicionar</button>
             </form>
-
             {/* Filtros e ordenações visuais */}
             <div className="filtros">
                 <label>Status:
@@ -127,7 +130,6 @@ export default function ListaDeTarefas() {
                         <option>Pendentes</option>
                     </select>
                 </label>
-
                 <label>
                     <input
                         type="checkbox"
@@ -137,7 +139,6 @@ export default function ListaDeTarefas() {
                     Ordenar por prioridade
                 </label>
             </div>
-
             {/* Renderiza a lista de tarefas filtradas */}
             <ul>
                 {listaFiltrada.map((tarefa) => (
@@ -149,20 +150,18 @@ export default function ListaDeTarefas() {
                         <p>Prioridade: {tarefa.prioridade}</p>
                         <p>Limite: {tarefa.dataLimite || 'Sem data'}</p>
                         <p>Status: {tarefa.concluida ? 'Concluída' : 'Pendente'}</p>
-
                         <button onClick={() => toggleConcluida(tarefa.id)}>
                             {tarefa.concluida ? 'Desmarcar' : 'Concluir'}
                         </button>
-
                         <button onClick={() => removerTarefa(tarefa.id)} className="remover">
                             Remover
                         </button>
                     </li>
                 ))}
             </ul>
-
             {/* Botão para resetar todas as tarefas */}
             <button onClick={handleClear} className="resetar">Resetar Tudo</button>
         </div>
+    
     )
 }

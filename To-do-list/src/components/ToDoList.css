@@ -1,13 +1,173 @@
-form input{
-    padding: 5px;
-    margin: 10px;
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: #f5f6ff;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center;
 }
 
+/* Container principal */
+.container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px 40px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+}
+
+/* Título */
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 14px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+input:focus,    
+select:focus {
+    border-color: #6a5acd;
+    outline: none;
+}
+
+.input-area {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px
+}
+
+.input-desc {
+    text-align: right;
+    height: 0px;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+/* Checkbox */
+label {
+    font-size: 0.9rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Botões */
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.add {
+    background-color: #4c4cff;
+    color: white;
+}
+
+.add:hover {
+    background-color: #3333cc;
+}
+
+/* Filtros */
+.filtros {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Lista de tarefas */
 ul {
-    margin: 50px;
+    padding: 0;
+    margin: 0 0 20px 0;
+    list-style: none;
 }
 
-ul li{
-    list-style: none;
-    border: 2px solid #FFDAB9;
+.tarefa {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    background-color: #fafafa;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.tarefa.concluida {
+    background-color: #e8ffe8;
+    border-left: 6px solid #47c947;
+}
+
+.tarefa.pendente {
+    border-left: 6px solid #ffa500;
+}
+
+.tarefa p {
+    margin: 4px 0;
+    font-size: 0.9rem;
+}
+
+/* Ações dentro das tarefas */
+.tarefa button {
+    margin-top: 8px;
+    margin-right: 10px;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+}
+
+.tarefa .remover {
+    background-color: #e53935;
+    color: white;
+}
+
+.tarefa .remover:hover {
+    background-color: #c62828;
+}
+
+.tarefa button:not(.remover) {
+    background-color: #3f51b5;
+    color: white;
+}
+
+.tarefa button:not(.remover):hover {
+    background-color: #2c3ca9;
+}
+
+.resetar {
+    background-color: #d32f2f;
+    color: white;
+    width: 100%;
+}
+
+.resetar:hover {
+    background-color: #b71c1c;
 }
